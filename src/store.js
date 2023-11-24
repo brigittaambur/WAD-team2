@@ -9,7 +9,7 @@ export const store = createStore({
         author_email: 'jose55@example.com',
         created_at: 'October 7, 2023',
         text: 'Turkiye 2023',
-        image_path: 'assets/postitus.jpeg',
+        image_path: 'img/postitus.jpeg',
         image_alt: 'Travel image'
       },
       {
@@ -54,7 +54,7 @@ export const store = createStore({
         author_email: 'ro.rojas@example.com',
         created_at: 'October 7, 2023',
         text: "Just had the most incredible time at the FC Barcelona game! The energy at the stadium was absolutely electric, and the passion of the fans was off the charts. Witnessing the magic of Messi on the field and the teamwork that makes this club legendary was a dream come true. ⚽❤️🔵🔴 Can't wait for the next match! #FCBarcelona #FootballMagic #UnforgettableExperience",
-        image_path: 'assets/messi.jpeg',
+        image_path: 'img/messi.jpeg',
         image_alt: 'Football game'
       },
       {
@@ -63,7 +63,7 @@ export const store = createStore({
         author_email: 'ro.rojas@example.com',
         created_at: 'October 7, 2023',
         text: "Just experienced the enchanting Vienna Christmas Market, and it's pure holiday magic! The twinkling lights, festive decorations, and the scent of mulled wine and roasted chestnuts filled the air. And to top it off, the snowfall added that perfect touch of winter wonderland! ❄️🎄✨ #ViennaChristmas #MagicalMoments #SnowyDelight",
-        image_path: 'assets/christmas.jpeg',
+        image_path: 'img/christmas.jpeg',
         image_alt: 'Christmas market'
       },
       {
@@ -72,7 +72,7 @@ export const store = createStore({
         author_email: 'ro.rojas@example.com',
         created_at: 'October 7, 2023',
         text: "Just had an eventful start to my Mexico trip! Unfortunately, my luggage went on its own adventure and got lost in transit. 😅 But thanks to my trusty Apple AirTag, I was able to track it down and reunite with my belongings. 🛄✈️ It's incredible how technology can come to the rescue when you least expect it! Grateful for a smooth recovery and ready to continue exploring this beautiful country. 🇲🇽💼 #TravelAdventure #AppleAirTag #LostAndFound",
-        image_path: 'assets/mexico.jpeg',
+        image_path: 'img/mexico.jpeg',
         image_alt: 'Mexico'
       },
       {
@@ -94,10 +94,5 @@ export const store = createStore({
         image_alt: null
       }
     ]
-  },
-  getters: {
-    allPosts(state) {
-      return state.posts
-    }
   }
 })
