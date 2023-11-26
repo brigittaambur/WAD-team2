@@ -16,7 +16,7 @@
                 * It should start with an uppercase alphabet <br>
                 * It should include the character “_” <br>
             </errortext>
-            <button type="submit">Sign up</button>
+            <button type="submit" :disabled="!passwordValidation">Sign up</button>
           </form>
       </div>
     </div>
@@ -32,15 +32,13 @@ export default {
     const passwordValidation = ref(true);
 
     const validatePassword = () => {
-      // Password validation rules
       const lengthCheck = password.value.length >= 8 && password.value.length < 15;
       const uppercase = /[A-Z]/.test(password.value);
-      const lowercase = /[a-z].*[a-z]/.test(password.value); // at least two lowercase letters
+      const lowercase = /[a-z].*[a-z]/.test(password.value);
       const numericCheck = /\d/.test(password.value);
       const uppercaseStart = /^[A-Z]/.test(password.value);
       const underscore = /_/.test(password.value);
 
-      // Check all conditions
       passwordValidation.value =
         lengthCheck &&
         uppercase &&
@@ -50,7 +48,7 @@ export default {
         underscore;
     };
 
-    return { email, password, passwordValidation, validatePassword };
+    return { email, password, passwordValidation, validatePassword};
   }
 }
 </script>
