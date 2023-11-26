@@ -5,8 +5,8 @@
             <label for="email">Email</label>
             <input type="email" placeholder="Email" name="email" required> <br>
             <label for="password">Password</label>
-            <input type="password" placeholder="Password" name="password" required> 
-            <p v-if="!passwordValidation" class="error-message">
+            <input v-model="password" @input="validatePassword" type="password" placeholder="Password" name="password" required> 
+            <errortext v-if="!passwordValidation" class="error-message"><br>
                 The password you entered is not valid. Follow these conditions:
                 <br>
                 * The password should contain at least 8 chars and less than 15 chars<br>
@@ -15,9 +15,8 @@
                 * Include at least one numeric value <br>
                 * It should start with an uppercase alphabet <br>
                 * It should include the character “_” <br>
-
-            </p>
-            <button type="submit" formaction="index.html">Sign up</button>
+            </errortext>
+            <button type="submit">Sign up</button>
           </form>
       </div>
     </div>
@@ -35,20 +34,20 @@ export default {
     const validatePassword = () => {
       // Password validation rules
       const lengthCheck = password.value.length >= 8 && password.value.length < 15;
-      const uppercaseCheck = /[A-Z]/.test(password.value);
-      const lowercaseCheck = /[a-z].*[a-z]/.test(password.value); // at least two lowercase letters
+      const uppercase = /[A-Z]/.test(password.value);
+      const lowercase = /[a-z].*[a-z]/.test(password.value); // at least two lowercase letters
       const numericCheck = /\d/.test(password.value);
-      const startsWithUppercase = /^[A-Z]/.test(password.value);
-      const includesUnderscore = /_/.test(password.value);
+      const uppercaseStart = /^[A-Z]/.test(password.value);
+      const underscore = /_/.test(password.value);
 
       // Check all conditions
       passwordValidation.value =
         lengthCheck &&
-        uppercaseCheck &&
-        lowercaseCheck &&
+        uppercase &&
+        lowercase &&
         numericCheck &&
-        startsWithUppercase &&
-        includesUnderscore;
+        uppercaseStart &&
+        underscore;
     };
 
     return { email, password, passwordValidation, validatePassword };
@@ -71,6 +70,7 @@ export default {
     text-align: center;
     font-size: 22px;
     font-family: Rockwell Extra Bold, Rockwell Bold, monospace;
+    padding-top: 20px;
     
 }
 
@@ -87,6 +87,10 @@ h4~form {
 
 h4+p {
     padding: 20px;
+}
+
+errortext {
+    font-size: xx-small;
 }
 
 button {
