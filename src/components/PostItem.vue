@@ -1,4 +1,6 @@
 <script>
+import store from '../store';
+
 export default{
   name: "PostItem",
   props:{
@@ -63,5 +65,5 @@ export default{
 </template>
 
 <style scoped>
-@import '../assets/post.css'
+@import '../assets/post.css';
 </style>
