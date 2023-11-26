@@ -1,0 +1,60 @@
+.post {
+    margin: auto;
+    color: black;
+    padding: 20px;
+    width: 400px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 grey;
+    border-radius: 15px;
+    min-width: 250px;
+    overflow: hidden;
+}
+
+.post__header {
+    display: flex;
+}
+
+.post--grey {
+    background-color: ghostwhite;
+}
+
+.post__date {
+    margin-left: auto;
+}
+
+.post__profile {
+    height: auto;
+    max-width: 15%;
+    padding-bottom: 15px;
+
+}
+
+.post__image {
+    height: auto;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 15px;
+}
+
+.post__like {
+    height: auto;
+    max-width: 20px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.post>p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.addLike {
+    background-color: whitesmoke;
+}
+.addLike img {
+    width: 25px;
+    height: 25px;
+}

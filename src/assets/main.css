@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 /*Navigation bar*/
 .navbar {
     display: flex;
@@ -12,6 +13,7 @@
     width: 99%;
     margin: auto;
     margin-top: 2px;
+    margin-bottom: 15px;
     align-items: center;
     justify-content: center;
     background-color: #333;
