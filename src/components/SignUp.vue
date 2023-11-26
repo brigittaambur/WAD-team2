@@ -16,7 +16,7 @@
                 * It should start with an uppercase alphabet <br>
                 * It should include the character “_” <br>
             </errortext>
-            <button type="submit">Sign up</button>
+            <button type="submit" :disabled="!passwordValidation">Sign up</button>
           </form>
       </div>
     </div>
