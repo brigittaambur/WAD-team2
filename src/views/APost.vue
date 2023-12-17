@@ -1,11 +1,11 @@
 <script>
-import Header from '../components/PageHeader.vue';
-import Footer from '../components/PageFooter.vue';
+import PageHeader from '../components/PageHeader.vue';
+import PageFooter from '../components/PageFooter.vue';
 
 
 export default {
     name: "APost",
-    components: {Header, Footer},
+    components: {PageHeader, PageFooter},
 
     data(){
         return {
@@ -16,7 +16,7 @@ export default {
     methods: {
     fetchPost(){
         const postId = this.$route.params.id;
-        fetch("http://localhost:3000/posts/${postId}")
+        fetch(`http://localhost:3000/posts/${postId}`)
         .then((response)=> response.json())
         .then((data) => {
             this.post = data;
@@ -28,13 +28,13 @@ export default {
     },
     updatePost(){
         const postId = this.$route.params.id;
-        fetch("http://localhost:3000/posts/${postId}", {
+        fetch(`http://localhost:3000/posts/${postId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                Text: this.updatedText,
+                text: this.updatedText,
             }),
         })
         .then((response) => response.json())
@@ -49,7 +49,7 @@ export default {
 
     deletePost(){
         const postId=this.$route.params.id;
-        fetch("http://localhost:3000/posts/${postId}", {
+        fetch(`http://localhost:3000/posts/${postId}`, {
             method: 'DELETE',
         })
         .then(()=>{
@@ -67,7 +67,7 @@ export default {
 
 <template>
     <div class="container">
-      <Header></Header>
+      <PageHeader></PageHeader>
       <main>
           <div class="apost">
             <p>A Post</p>
@@ -80,7 +80,7 @@ export default {
             <button @click="deletePost">Delete</button>
         </div>
       </main>
-    <Footer></Footer>
+    <PageFooter></PageFooter>
     </div>
   </template>
 
@@ -115,7 +115,7 @@ button {
   cursor: pointer;
   padding: 5px 7px;
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
   font-size: 22px;
   font-family: Rockwell Extra Bold, Rockwell Bold, monospace;
 }
