@@ -10,12 +10,15 @@ export default {
     PageFooter
   },
   methods: {
-    resetLikes: function () {
-      this.$store.dispatch("resetLikesAct")
+    deleteAllPosts() {
+      fetch(`http://localhost:3000/posts`, { method: "DELETE", headers: { "Content-Type": "application/json" } })
+        .then(() => {
+          this.$store.dispatch("deleteAllPosts")
+        })
     },
     fetchPosts() {
       fetch(`http://localhost:3000/posts`, { headers: { "Content-Type": "application/json" } })
-      .then((r) => r.json())
+        .then((r) => r.json())
         .then((data) => {
           this.$store.dispatch("saveFetchedPosts", data["data"])
         })
@@ -40,9 +43,10 @@ export default {
     <PageHeader />
     <div v-for="post in posts" :key="post.id">
       <PostItem :id=post.id :created_at=post.created_at :text=post.text :image_path=post.image_path
-        :image_alt=post.image_alt :likes=post.likes>
+        :image_alt=post.image_alt>
       </PostItem>
     </div>
+    <button class="reset" v-on:click="deleteAllPosts">Delete all</button>
     <button class="reset" v-on:click="addPost">Reset Likes</button>
     <PageFooter />
   </div>
