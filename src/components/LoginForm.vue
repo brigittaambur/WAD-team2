@@ -77,7 +77,7 @@ export default {
         * It should include the character “_” <br>
       </errortext>
       <button :disabled="!passwordValidation" @click="login">Login</button>
-      Or
+      <br>Or<br>
       <button :disabled="!passwordValidation" @click="signUp">Sign up</button>
     </div>
   </div>

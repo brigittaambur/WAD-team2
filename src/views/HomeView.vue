@@ -31,6 +31,18 @@ export default {
     aPost: function (id) {
       this.$router.push(`/apost/${id}`);
     },
+    logOut() {
+      fetch("http://localhost:3000/auth/logout", {
+          credentials: 'include',
+      })
+      .then(() => {
+        this.$router.push("/login");
+      })
+      .catch((e) => {
+        console.log(e);
+        console.log("error logout");
+      });
+    },
   },
   created() {
     this.fetchPosts();
@@ -51,6 +63,7 @@ export default {
 <template>
   <div class="container">
     <PageHeader />
+    <button class="home-button" v-on:click="logOut">Logout</button>
     <div v-for="post in posts" :key="post.id">
       <PostItem :id=post.id :created_at=post.created_at :text=post.text v-on:click="aPost(post.id)"></PostItem>
     </div>
