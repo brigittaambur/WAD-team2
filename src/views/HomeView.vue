@@ -2,6 +2,8 @@
 import PostItem from '../components/PostItem.vue';
 import PageHeader from '../components/PageHeader.vue';
 import PageFooter from '../components/PageFooter.vue';
+import auth from '../auth'
+
 export default {
   name: 'HomeView',
   components: {
@@ -36,6 +38,11 @@ export default {
   computed: {
     posts() {
       return this.$store.state.posts
+    }
+  },
+  data: function () {
+    return {
+      authResult: auth.authenticated()
     }
   },
 }

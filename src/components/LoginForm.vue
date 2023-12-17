@@ -2,7 +2,7 @@
 import { ref } from 'vue';
 
 export default {
-  name: "SignUp",
+  name: "LoginForm",
   data() {
     return {
       email: "",
@@ -10,8 +10,8 @@ export default {
     };
   },
   methods: {
-    signUp() {
-      fetch("http://localhost:3000/auth/signup", {
+    login() {
+      fetch("http://localhost:3000/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,6 +29,9 @@ export default {
           console.log("error");
         });
     },
+    signUp() {
+      this.$router.push("/signup");
+    }
   },
   setup() {
     const passwordValidation = ref(true);
@@ -73,6 +76,8 @@ export default {
         * It should start with an uppercase alphabet <br>
         * It should include the character “_” <br>
       </errortext>
+      <button :disabled="!passwordValidation" @click="login">Login</button>
+      Or
       <button :disabled="!passwordValidation" @click="signUp">Sign up</button>
     </div>
   </div>
