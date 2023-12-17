@@ -1,16 +1,16 @@
 <script setup>
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
+import PageHeader from '../components/PageHeader.vue';
+import PageFooter from '../components/PageFooter.vue';
 import SignUp from '../components/SignUp.vue';
 </script>
 
 <template>
   <div class="container">
-    <Header></Header>
+    <PageHeader/>
     <main>
       <SignUp/>
     </main>
-  <Footer></Footer>
+  <PageFooter/>
   </div>
 </template>
 
