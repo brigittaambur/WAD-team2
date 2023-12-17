@@ -29,7 +29,6 @@ export default {
     aPost: function () {
       this.$router.push("/apost")
     },
-
   },
   created() {
     this.fetchPosts();
@@ -46,7 +45,7 @@ export default {
   <div class="container">
     <PageHeader />
     <div v-for="post in posts" :key="post.id">
-      <PostItem :id=post.id :created_at=post.created_at :text=post.text></PostItem>
+      <PostItem :id=post.id :created_at=post.created_at :text=post.text v-on:click="aPost"></PostItem>
     </div>
     <div class="home-buttons-group">
       <button class="home-button home-button--left" v-on:click="addPost">Add post</button>

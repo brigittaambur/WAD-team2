@@ -10,6 +10,7 @@
     border-radius: 15px;
     min-width: 250px;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .post__header {
