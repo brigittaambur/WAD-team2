@@ -24,7 +24,7 @@ const router = createRouter({
       component: AddPost
     },
     {
-      path: '/apost',
+      path: '/apost/:id',
       name: 'APost',
       component: APost
     },
