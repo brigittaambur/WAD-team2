@@ -16,7 +16,7 @@
                 * It should start with an uppercase alphabet <br>
                 * It should include the character “_” <br>
             </errortext>
-            <button type="submit" :disabled="!passwordValidation">Sign up</button>
+            <button :disabled="!passwordValidation" @click="signUp">Sign up</button>
           </form>
       </div>
     </div>
@@ -26,6 +26,27 @@
 import { ref } from 'vue';
 
 export default {
+  name: "SignUp",
+  methods: {
+    signUp() {
+      fetch("http://localhost:3000/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+          this.$router.push("/");
+        })
+        .catch((e) => {
+          console.log(e);
+          console.log("error");
+        });
+    },
+  },
   setup() {
     const email = ref('');
     const password = ref('');
