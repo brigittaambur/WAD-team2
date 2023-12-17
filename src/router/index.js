@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import SignUpView from '../views/SignUpView.vue'
 import AddPost from '../views/AddPost.vue'
-
+import APost from '../views/APost.vue'
 
 
 const router = createRouter({
@@ -22,7 +22,12 @@ const router = createRouter({
       path: '/addpost',
       name: 'addpost',
       component: AddPost
-    }
+    },
+    {
+      path: '/apost',
+      name: 'APost',
+      component: APost
+    },
   ]
 })
 

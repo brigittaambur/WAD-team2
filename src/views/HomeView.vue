@@ -26,6 +26,10 @@ export default {
     addPost: function () {
       this.$router.push("/addpost")
     },
+    aPost: function () {
+      this.$router.push("/apost")
+    },
+
   },
   created() {
     this.fetchPosts();
