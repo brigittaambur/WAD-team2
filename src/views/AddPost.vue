@@ -1,10 +1,10 @@
 <script>
-import Header from '../components/PageHeader.vue';
-import Footer from '../components/PageFooter.vue';
+import PageHeader from '../components/PageHeader.vue';
+import PageFooter from '../components/PageFooter.vue';
 
 export default {
-name: "AddPost", 
-components: {Header, Footer},
+name: "AddPost",
+components: {PageHeader, PageFooter},
 
 data: function() {
     return {
@@ -40,13 +40,13 @@ AddPost() {
         console.log("error");
       });
     },
-  }, 
+  },
   }
 </script>
 
 <template>
   <div class="container">
-    <Header></Header>
+    <PageHeader/>
     <main>
         <div class="form-container">
             <label>Body</label>
@@ -54,7 +54,7 @@ AddPost() {
             <button @click="AddPost">Add</button>
       </div>
     </main>
-  <Footer></Footer>
+  <PageFooter/>
   </div>
 </template>
 
@@ -74,7 +74,7 @@ AddPost() {
     font-size: 22px;
     font-family: Rockwell Extra Bold, Rockwell Bold, monospace;
     padding-top: 20px;
-    
+
 }
 
 label{

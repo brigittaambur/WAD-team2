@@ -42,12 +42,12 @@ export default {
   <div class="container">
     <PageHeader />
     <div v-for="post in posts" :key="post.id">
-      <PostItem :id=post.id :created_at=post.created_at :text=post.text :image_path=post.image_path
-        :image_alt=post.image_alt>
-      </PostItem>
+      <PostItem :id=post.id :created_at=post.created_at :text=post.text></PostItem>
     </div>
-    <button class="reset" v-on:click="deleteAllPosts">Delete all</button>
-    <button class="reset" v-on:click="addPost">Add post</button>
+    <div class="home-buttons-group">
+      <button class="home-button home-button--left" v-on:click="addPost">Add post</button>
+      <button class="home-button home-button--right" v-on:click="deleteAllPosts">Delete all</button>
+    </div>
     <PageFooter />
   </div>
 </template>

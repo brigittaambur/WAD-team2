@@ -24,28 +24,6 @@
     margin-left: auto;
 }
 
-.post__profile {
-    height: auto;
-    max-width: 15%;
-    padding-bottom: 15px;
-
-}
-
-.post__image {
-    height: auto;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 15px;
-}
-
-.post__like {
-    height: auto;
-    max-width: 20px;
-    padding-top: 10px;
-    cursor: pointer;
-}
-
 .post>p {
     margin-top: 5px;
     margin-bottom: 5px;
