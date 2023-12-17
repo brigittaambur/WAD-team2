@@ -1,6 +1,4 @@
 <script>
-import store from '../store';
-
 export default{
   name: "PostItem",
   props:{
@@ -36,13 +34,13 @@ export default{
   methods:{
     getImageUrl(name) {
     return new URL(`../assets/${name}`, import.meta.url).href
-    
+
   },
   incrementLike(id) {
     this.$store.dispatch("incrementLikeAct",id)
   }
   }
-  
+
 }
 </script>
 
@@ -55,12 +53,12 @@ export default{
     </header>
     <img v-if="image_path" class="post__image" :src="getImageUrl(image_path)" :alt=image_alt>
     <p> {{ text }} </p>
-    <p class="post__like">
+    <div class="post__like">
       <button class="addLike" v-on:click="incrementLike(id)">
         <img src="../assets/img/thumbsUp.jpg">
       </button>
         <div>{{ likes }}</div>
-    </p>
+    </div>
   </article>
 </template>
 
