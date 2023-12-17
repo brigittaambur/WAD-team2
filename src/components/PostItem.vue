@@ -3,10 +3,6 @@ export default{
   name: "PostItem",
   props:{
   id: {
-    type: Number,
-    required: true
-  },
-  author_name: {
     type: String,
     required: true
   },
