@@ -6,12 +6,6 @@ export default {
   name: "AddPost",
   components: { PageHeader, PageFooter },
 
-  data: function () {
-    return {
-      body: '',
-    }
-  },
-
   methods: {
     addPost() {
       fetch("http://localhost:3000/posts", {
