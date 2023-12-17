@@ -1,9 +1,9 @@
 <template >
     <div>
       <div class="form-container">
-          <form>
+          <form @submit.prevent="">
             <label for="email">Email</label>
-            <input type="email" placeholder="Email" name="email" required> <br>
+            <input v-model="email" type="email" placeholder="Email" name="email" required> <br>
             <label for="password">Password</label>
             <input v-model="password" @input="validatePassword" type="password" placeholder="Password" name="password" required> 
             <errortext v-if="!passwordValidation" class="error-message"><br>
@@ -29,12 +29,12 @@ export default {
   name: "SignUp",
   methods: {
     signUp() {
-      fetch("http://localhost:3000/signup", {
+      fetch("http://localhost:3000/auth/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ data }),
+        body: JSON.stringify({ email:this.email, password:this.password }),
       })
         .then((response) => response.json())
         .then((data) => {
