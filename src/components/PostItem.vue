@@ -1,40 +1,36 @@
 <script>
-export default{
+export default {
   name: "PostItem",
-  props:{
-  id: {
-    type: String,
-    required: true
+  props: {
+    id: {
+      type: String,
+      required: true
+    },
+    created_at: {
+      type: String,
+      required: true
+    },
+    text: {
+      type: String,
+      required: true
+    },
+    image_path: {
+      type: String,
+      required: false
+    },
+    image_alt: {
+      type: String,
+      required: false
+    }
   },
-  created_at: {
-    type: String,
-    required: true
-  },
-  text: {
-    type: String,
-    required: true
-  },
-  image_path: {
-    type: String,
-    required: false
-  },
-  image_alt: {
-    type: String,
-    required: false
-  },
-  likes: {
-    type: Number,
-    required: true
-  }
-  },
-  methods:{
+  methods: {
     getImageUrl(name) {
-    return new URL(`../assets/${name}`, import.meta.url).href
+      return new URL(`../assets/${name}`, import.meta.url).href
 
-  },
-  incrementLike(id) {
-    this.$store.dispatch("incrementLikeAct",id)
-  }
+    },
+    incrementLike(id) {
+      this.$store.dispatch("incrementLikeAct", id)
+    }
   }
 
 }
@@ -53,7 +49,6 @@ export default{
       <button class="addLike" v-on:click="incrementLike(id)">
         <img src="../assets/img/thumbsUp.jpg">
       </button>
-        <div>{{ likes }}</div>
     </div>
   </article>
 </template>
