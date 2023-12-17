@@ -4,6 +4,6 @@
 <template>
     <footer>
             &#169; Mentorgrupi osahulk <br>
-            Last modified: 26.11.2023
+            Last modified: 17.12.2023
     </footer>
 </template>
