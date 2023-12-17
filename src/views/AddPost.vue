@@ -30,21 +30,25 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+    <div class="container">
     <PageHeader />
     <main>
-      <div class="form-container">
-        <label>Body</label>
-        <input v-model="postText" placeholder="body" required> <br>
+      <div class="addpost">
+        <p>Add post</p>
+        <div class="input">
+            <label>Body</label>
+            <input v-model="postText" placeholder="Insert text" required>
+        </div> 
+        <br>
         <button @click="addPost">Add</button>
       </div>
     </main>
     <PageFooter />
-  </div>
+    </div>
 </template>
 
 <style>
-.form-container {
+.addpost {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,30 +66,33 @@ export default {
 
 }
 
+
 label {
   color: black;
-  padding: 5%;
 }
 
 button {
   background-color: #000B6B;
+  width: 200px;
   color: white;
   cursor: pointer;
   padding: 5px 7px;
-  margin: 20px 0;
+  margin-left: auto;
+  margin-right: auto; 
   font-size: 22px;
   font-family: Rockwell Extra Bold, Rockwell Bold, monospace;
 }
 
-input[type=email],
-input[type=password] {
-  width: 150px;
+input {
+  width: 200px;
   padding: 8px;
-  margin: 5px 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-size: 22px;
   font-family: Rockwell Extra Bold, Rockwell Bold, monospace;
 
 }
+
 
 a:link,
 a:visited {
