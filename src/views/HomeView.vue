@@ -19,7 +19,10 @@ export default {
         .then((data) => {
           this.$store.dispatch("saveFetchedPosts", data["data"])
         })
-    }
+    },
+    addPost: function () {
+      this.$router.push("/addpost")
+    },
   },
   created() {
     this.fetchPosts();
@@ -40,7 +43,7 @@ export default {
         :image_alt=post.image_alt :likes=post.likes>
       </PostItem>
     </div>
-    <button class="reset" v-on:click="resetLikes">Reset Likes</button>
+    <button class="reset" v-on:click="addPost">Reset Likes</button>
     <PageFooter />
   </div>
 </template>

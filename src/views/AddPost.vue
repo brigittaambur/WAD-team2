@@ -1,6 +1,6 @@
 <script>
-import Header from '../components/Header.vue';
-import Footer from '../components/Footer.vue';
+import Header from '../components/PageHeader.vue';
+import Footer from '../components/PageFooter.vue';
 
 export default {
 name: "AddPost", 
@@ -15,7 +15,7 @@ data: function() {
   methods: {
 
 AddPost() {
-    date = new Date();
+    var date = new Date();
       var data = {
         body: this.body,
         date: date
