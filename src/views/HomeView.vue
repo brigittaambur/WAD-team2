@@ -47,7 +47,7 @@ export default {
       </PostItem>
     </div>
     <button class="reset" v-on:click="deleteAllPosts">Delete all</button>
-    <button class="reset" v-on:click="addPost">Reset Likes</button>
+    <button class="reset" v-on:click="addPost">Add post</button>
     <PageFooter />
   </div>
 </template>
