@@ -4,85 +4,88 @@ import PageFooter from '../components/PageFooter.vue';
 
 
 export default {
-    name: "APost",
-    components: {PageHeader, PageFooter},
+  name: "APost",
+  components: { PageHeader, PageFooter },
 
-    data(){
-        return {
-            post: {},
-            updatedText: "",
-        };
-    },
-    methods: {
-    fetchPost(){
-        const postId = this.$route.params.id;
-        fetch(`http://localhost:3000/posts/${postId}`)
-        .then((response)=> response.json())
-        .then((data) => {
-            this.post = data;
-            this.updatedText = data.Text;
-        })
-        .catch((error) => {
-            console.error('Error fetching post: ', error);
-        });
-    },
-    updatePost(){
-        const postId = this.$route.params.id;
-        fetch(`http://localhost:3000/posts/${postId}`, {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                text: this.updatedText,
-            }),
-        })
+  data() {
+    return {
+      updatedText: "",
+    };
+  },
+  created() {
+    this.fetchPost();
+  },
+  methods: {
+    fetchPost() {
+      const postId = this.$route.params.id;
+      fetch(`http://localhost:3000/posts/${postId}`, { headers: { "Content-Type": "application/json" } })
         .then((response) => response.json())
         .then((data) => {
-            console.log('Post updated successfully:', data.data);
-            this.$router.push('/');
+          this.post = data["data"];
+          console.log(this.post);
+          this.updatedText = this.post.text;
         })
         .catch((error) => {
-            console.error('Error updating post:', error);
+          console.error('Error fetching post: ', error);
+        });
+    },
+    updatePost() {
+      const postId = this.$route.params.id;
+      fetch(`http://localhost:3000/posts/${postId}`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          text: this.updatedText,
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Post updated successfully:', data.data);
+          this.$router.push('/');
+        })
+        .catch((error) => {
+          console.error('Error updating post:', error);
         });
     },
 
-    deletePost(){
-        const postId=this.$route.params.id;
-        fetch(`http://localhost:3000/posts/${postId}`, {
-            method: 'DELETE',
-        })
-        .then(()=>{
-            console.log('Post deleted');
-            this.$router.push('/');
+    deletePost() {
+      const postId = this.$route.params.id;
+      fetch(`http://localhost:3000/posts/${postId}`, {
+        method: 'DELETE',
+      })
+        .then(() => {
+          console.log('Post deleted');
+          this.$router.push('/');
         })
         .catch((error) => {
-            console.error('Error deleting post:', error);
+          console.error('Error deleting post:', error);
         })
     }
 
-    }
+  }
 };
 </script>
 
 <template>
-    <div class="container">
-      <PageHeader></PageHeader>
-      <main>
-          <div class="apost">
-            <p>A Post</p>
-            <div class="input">
-                <label>Body</label>
-                <input v-model="updatedText" placeholder="Add body" required>
-            </div>
-            <br>
-            <button @click="updatePost">Update</button>
-            <button @click="deletePost">Delete</button>
+  <div class="container">
+    <PageHeader></PageHeader>
+    <main>
+      <div class="apost">
+        <p>A Post</p>
+        <div class="input">
+          <label>Body</label>
+          <input v-model="updatedText" :placeholder="updatedText" required>
         </div>
-      </main>
+        <br>
+        <button @click="updatePost">Update</button>
+        <button @click="deletePost">Delete</button>
+      </div>
+    </main>
     <PageFooter></PageFooter>
-    </div>
-  </template>
+  </div>
+</template>
 
 <style>
 .apost {
