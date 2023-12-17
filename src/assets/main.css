@@ -67,9 +67,12 @@ footer {
 }
 
 .home-button--left {
-    margin-left: 340px;
+    margin-left: 20%;
+    margin-right: 10px;
 }
 .home-button--right {
-    margin-right: 340px;
+    margin-right: 20%;
+    margin-left: 10px;
 }
+
 
